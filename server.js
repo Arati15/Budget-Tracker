@@ -15,9 +15,23 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost/budget", {
-  useNewUrlParser: true,
-  useFindAndModify: false
+
+
+var databaseUri = `mongodb://localhost/budget`;
+  
+
+if(process.env.MONGODB_URI) {
+    mongoose.connect(process.env.MONGODB_URI);
+}else {
+    mongoose.connect(databaseUri);
+}
+var db = mongoose.connection;
+
+db.on('error', function(err) {
+  console.log('Mongoose error:', err)
+});
+db.once('open', function() {
+  console.log('Mongoose connection successful.');
 });
 
 // routes
