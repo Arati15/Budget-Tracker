@@ -17,7 +17,7 @@ app.use(express.static("public"));
 
 
 
-//var databaseUri = `mongodb://localhost/budget`;
+var databaseUri = `mongodb://localhost/budget`;
   
 
 if(process.env.MONGODB_URI) {
