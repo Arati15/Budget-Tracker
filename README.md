@@ -45,7 +45,8 @@ When brought back online:
 ---
 
   ## License
-  License used for this project - MIT
+  
+  Licence used for this project - MIT
     
 
   ## Contributing:
